@@ -1,38 +1,33 @@
-# 🌍 Super Trunfo - Países (C Language)
+# 🃏 Super Trunfo: Países - Nível Mestre
 
-Este repositório contém o desenvolvimento do jogo **Super Trunfo** focado em cartas de países, desenvolvido em Linguagem C como parte da disciplina de Introdução à Programação.
+Este é um simulador de duelo de cartas desenvolvido em Linguagem C. O projeto foi estruturado para demonstrar conceitos avançados de lógica de programação, manipulação de tipos de dados e controle de fluxo.
 
-O projeto unifica os conceitos de manipulação de dados, cálculos matemáticos e lógica de decisão em um único sistema interativo.
+## 🚀 Funcionalidades Principais
+* **Menu de Atributos Dinâmico:** Implementação de lógica que impede a seleção do mesmo atributo duas vezes, filtrando visualmente as opções para o usuário.
+* **Duelo Combinado:** O sistema realiza a soma de dois atributos escolhidos pelo jogador para definir a força total da carta.
+* **Lógica Especial (Densidade Populacional):** Conforme as regras do Super Trunfo, na categoria Densidade Populacional, o menor valor vence. Esta lógica foi tratada matematicamente no código.
 
-## 📋 Sobre o Projeto
+## 🧠 Lógica e Estrutura Técnica
 
-O objetivo deste software é simular a mecânica clássica do jogo de cartas Super Trunfo. O desenvolvimento foi estruturado em níveis de complexidade, integrando:
+### O Tratamento da Densidade Populacional
+Para garantir que o menor valor de densidade vença na soma total, utilizei uma técnica de inversão matemática:
+1. Multipliquei o valor da densidade por `-1`.
+2. Isso faz com que valores menores (ex: 10) se tornem "maiores" no cálculo (-10) do que densidades altas (ex: 50 -> -50).
+3. Na exibição final, utilizei o **Operador Ternário** para converter o valor de volta para positivo, garantindo uma interface amigável.
 
-1.  **Gerenciamento de Dados (Nível Básico):** Definição e armazenamento de atributos de cartas (População, Área, PIB, Pontos Turísticos), além do cálculo automático de propriedades derivadas, como a **Densidade Populacional** e o **PIB per Capita**.
-2.  **Lógica de Jogo (Nível Aventureiro):** Implementação de um menu interativo que permite ao usuário escolher o atributo de batalha e um sistema de comparação robusto que determina o vencedor ou declara empate.
+### Operadores Ternários
+O código utiliza operadores ternários aninhados para decidir o vencedor de forma elegante:
+- **Empate:** Verificado primeiro.
+- **Vitória Carta 1 ou 2:** Decidida em uma única linha após a verificação de empate.
 
-## 🚀 Funcionalidades
 
-* **Menu Interativo:** O jogador seleciona qual atributo deseja comparar via terminal.
-* **Cálculos Automáticos:** O sistema calcula a Densidade Populacional e o PIB per Capita baseados nos dados brutos.
-* **Sistema de Comparação:** Utiliza estruturas condicionais (`if/else`) para comparar os atributos das cartas.
-* **Regras Especiais:**
-    * Para a maioria dos atributos, vence o **maior** valor.
-    * Para a **Densidade Populacional**, vence o **menor** valor (lógica invertida).
 
-## 🛠 Tecnologias e Conceitos Utilizados
+## 💻 Como Executar o Jogo
+1. Certifique-se de ter um compilador C (GCC) instalado.
+2. Compile o arquivo:
+   `gcc super_trunfo.c -o super_trunfo`
+3. Execute o programa:
+   `./super_trunfo`
 
-* **Linguagem C** (Padrão ANSI)
-* **Variáveis e Tipos de Dados** (`int`, `float`, `char`, `unsigned long`)
-* **Entrada e Saída** (`printf`, `scanf`)
-* **Operadores Matemáticos** (Cálculo de média e densidade)
-* **Estruturas de Decisão** (`if`, `else if`, `else`)
-* **Estruturas de Seleção** (`switch/case`)
-
-## 🎮 Como Executar o Jogo
-
-Para rodar o projeto em seu ambiente local (Linux, WSL ou GitHub Codespaces), siga os passos abaixo:
-
-### 1. Clonar o repositório
-```bash
-git clone [https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git](https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git)
+---
+**Desenvolvido como parte do Desafio de Lógica de Programação - Tema 3.**
