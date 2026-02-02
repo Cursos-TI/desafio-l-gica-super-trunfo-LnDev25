@@ -42,7 +42,6 @@ float pib_capita2 = (pib_valor2 / populacao2) ;
 
 // INICIO DO PROGRAMA - NIVEL AVENTUREIRO - TEMA 3 //
 
-
 // Menu interativo - Variavel e entrada de dados
 
 int opcao ;
@@ -63,94 +62,178 @@ printf ("5. Densidade Populacional\n");
 
 scanf ("%d", &opcao);
 
-// Switch case
+
+// FIM DO PROGRAMA - NIVEL AVENTUREIRO - TEMA 3 //
+
+
+
+// INICIO DO PROGRAMA - NIVEL AVENTUREIRO_MESTRE - TEMA 3 //
+
+// Para guardar os valores numéricos que serão comparados e somados
+
+float v1_c1, v1_c2; // Atributo 1 (Carta 1 e 2)
+float v2_c1, v2_c2; // Atributo 2 (Carta 1 e 2)
+
+// Primeiro Switch case para verificar qual foi a opcao escolhida no primeiro atributo
 
 switch (opcao){
 
     // População
     case 1:
-    printf("Comparação de População:\n");
-    printf("Carta 1: %lu vs Carta 2: %lu\n", populacao, populacao2);
 
-    if (populacao > populacao2) {
-        printf("Resultado: Carta 1 venceu a batalha!\n");
-    } else if (populacao < populacao2) {
-        printf("Resultado: Carta 2 venceu a batalha!\n");
-    } else {
-        printf("Resultado: Empate!\n");
-    }
+    v1_c1 = (float) populacao ; 
+    v1_c2 = (float) populacao2 ;
+
+    printf("Primeiro atributo escolhido: População\n");
+
     break;
    
-
     // Área em Km2
     case 2: 
-    printf("Comparação de Área em Km2:\n");
-    printf("Carta 1: %.2f vs Carta 2: %.2f\n", area, area2);
 
-    if (area > area2) {
-        printf( "Resultado: Carta 1 Venceu a batalha!\n");
-    } else if (area < area2) {
-        printf("Resultado: Carta 2 venceu a batalha!\n");
-    } else {
-        printf("Resultado: Empate!\n");
-    }
+    v1_c1 = area ;
+    v1_c2 = area2 ;
+
+    printf("Primeiro atributo escolhido: Área\n");
+
     break;
-
 
     // PIB
     case 3:
-    printf("Comparação do PIB:\n");
-    printf("Carta 1: %.2f vs Carta 2: %.2f\n", pib_valor, pib_valor2);
 
-    if (pib_valor > pib_valor2) {
-        printf( "Resultado: Carta 1 Venceu a batalha!\n");
-    } else if (pib_valor < pib_valor2) {
-        printf("Resultado: Carta 2 venceu a batalha!\n");
-    } else {
-        printf("Resultado: Empate!\n");
-    } 
+    v1_c1 = pib_valor ;
+    v1_c2 = pib_valor2 ;
+
+    printf("Primeiro atributo escolhido: PIB\n");
+
     break;
-
 
     // Pontos Turísticos
     case 4:
-    printf("Comparação de Pontos Turísticos:\n");
-    printf("Carta 1: %d vs Carta 2: %d\n", pontos_turisticos, pontos_turisticos2);
 
-    if (pontos_turisticos > pontos_turisticos2) {
-        printf( "Resultado: Carta 1 Venceu a batalha!\n");
-    } else if (pontos_turisticos < pontos_turisticos2) {
-        printf("Resultado: Carta 2 venceu a batalha!\n");
-    } else {
-        printf("Resultado: Empate!\n");
-    } 
+    v1_c1 = pontos_turisticos ;
+    v1_c2 = pontos_turisticos2 ;
+
+    printf("Primeiro atributo escolhido: Pontos Turísticos\n");
+
     break;
-
     
     // Densidade Populacional
     case 5:
-    printf("Comparação de Densidade Populacional:\n");
-    printf("Carta 1: %.2f vs Carta 2: %.2f\n", densidade_populacional1, densidade_populacional2);
 
-    if (densidade_populacional1 < densidade_populacional2) {
-        printf( "Resultado: Carta 1 Venceu a batalha!\n");
-    } else if (densidade_populacional1 > densidade_populacional2) {
-        printf("Resultado: Carta 2 venceu a batalha!\n");
-    } else {
-        printf("Resultado: Empate!\n");
-    } 
+    v1_c1 = -densidade_populacional1 ;
+    v1_c2 = -densidade_populacional2 ;
+
+    printf("Primeiro atributo escolhido: Densidade Populacional\n");
+
     break;
 
+}
 
-    // Resposta pronta ao jogador caso ele escolha alguma opção inválida
-    default:
-        printf("Opção inválida!");
-}  
+// Escolha do segundo atributo 
+
+int opcao2 ;
+
+printf ("\nEscolha o segundo atributo para sua batalha (Diferente do primeiro):\n") ;
+
+if (opcao != 1) printf ("1. População\n") ;
+if (opcao != 2) printf ("2. Área\n") ;
+if (opcao != 3) printf ("3. PIB\n") ;
+if (opcao != 4) printf ("4. Pontos Turísticos\n") ; 
+if (opcao != 5) printf ("5. Densidade Populacional\n") ;
+
+scanf ("%d", &opcao2);
+
+
+// Verificacao se o atributo escolhido ja nao foi escolhido 
+
+if (opcao2 == opcao){
+    printf("Esse atributo ja foi escolhido, tente outro!\n");
+} else {
+    switch (opcao2){
+
+    // População
+    case 1:
+
+    v2_c1 = (float) populacao ; 
+    v2_c2 = (float) populacao2 ;
+
+    printf("Segundo atributo escolhido: População\n");
+
+    break;
+   
+    // Área em Km2
+    case 2: 
+
+    v2_c1 = area ;
+    v2_c2 = area2 ;
+
+    printf("Segundo atributo escolhido: Área\n");
+
+    break;
+
+    // PIB
+    case 3:
+
+    v2_c1 = pib_valor ;
+    v2_c2 = pib_valor2 ;
+
+    printf("Segundo atributo escolhido: PIB\n");
+
+    break;
+
+    // Pontos Turísticos
+    case 4:
+
+    v2_c1 = pontos_turisticos ;
+    v2_c2 = pontos_turisticos2 ;
+
+    printf("Segundo atributo escolhido: Pontos Turísticos\n");
+
+    break;
     
+    // Densidade Populacional
+    case 5:
+
+    v2_c1 = -densidade_populacional1 ;
+    v2_c2 = -densidade_populacional2 ;
+
+    printf("Segundo atributo escolhido: Densidade Populacional\n");
+
+    break;
+
+}
+ 
+// Variaveis da soma dos valores de atributos para cada carta
+
+float soma_c1 = v1_c1 + v2_c1 ;
+float soma_c2 = v1_c2 + v2_c2 ;
+
+// Exibicao de resultados usando o ternario no final
+
+printf("\n--- RESULTADO FINAL ---\n");
+
+printf("País 1: %s - Soma: %.2f\n", nome_da_cidade, soma_c1);
+printf("País 2: %s - Soma: %.2f\n", nome_da_cidade2, soma_c2);
+
+// Exibindo valores individuais (tratando negativos se for densidade)
+
+printf("Atributo 1: Carta 1 (%.2f) vs Carta 2 (%.2f)\n", 
+        (v1_c1 < 0) ? v1_c1 * -1 : v1_c1, 
+        (v1_c2 < 0) ? v1_c2 * -1 : v1_c2);
+
+printf("Atributo 2: Carta 1 (%.2f) vs Carta 2 (%.2f)\n", 
+        (v2_c1 < 0) ? v2_c1 * -1 : v2_c1, 
+        (v2_c2 < 0) ? v2_c2 * -1 : v2_c2);
+
+// Resultado com Ternário
+
+printf("\nResultado: %s\n", (soma_c1 == soma_c2) ? "Empate!" : (soma_c1 > soma_c2 ? "Carta 1 venceu!" : "Carta 2 venceu!")); 
+
+    }
 
 
-// FIM DO PROGRAMA - NIVEL AVENTUREIRO - TEMA 3 //
-
+// FIM DO PROGRAMA - NIVEL MESTRE - TEMA 3 //
 
 //-------------------------------------------------------------------------------------------------------------//
 
